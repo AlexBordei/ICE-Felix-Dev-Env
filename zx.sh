@@ -1,13 +1,19 @@
 #!/bin/bash
 
 # ZX Spectrum Development Environment
-# Usage: ./zx.sh [command] [file]
+# Usage: zx [command] [file]
 #
 # Commands:
 #   run       - Start ZEsarUX emulator
 #   basic     - Create a new BASIC program
 #   asm       - Create a new assembly program
 #   help      - Show this help message
+
+# Get the script name (either zx or ./zx.sh)
+SCRIPT_NAME=$(basename "$0")
+if [[ "$SCRIPT_NAME" == "zx.sh" ]]; then
+    SCRIPT_NAME="./$SCRIPT_NAME"
+fi
 
 # ZEsarUX path
 ZESARUX="/Applications/ZEsarUX.app/Contents/MacOS/zesarux"
@@ -25,7 +31,7 @@ mkdir -p src roms
 # Show usage
 show_usage() {
     echo "ZX Spectrum Development Environment"
-    echo "Usage: ./zx.sh [command] [file]"
+    echo "Usage: $SCRIPT_NAME [command] [file]"
     echo ""
     echo "Commands:"
     echo "  run                  - Start ZEsarUX emulator"
@@ -34,9 +40,9 @@ show_usage() {
     echo "  help                 - Show this help message"
     echo ""
     echo "Examples:"
-    echo "  ./zx.sh run          - Start the emulator"
-    echo "  ./zx.sh basic game   - Create src/game.bas"
-    echo "  ./zx.sh asm sprite   - Create src/sprite.asm"
+    echo "  $SCRIPT_NAME run          - Start the emulator"
+    echo "  $SCRIPT_NAME basic game   - Create src/game.bas"
+    echo "  $SCRIPT_NAME asm sprite   - Create src/sprite.asm"
 }
 
 # Create a new BASIC program
@@ -65,7 +71,7 @@ create_basic() {
 EOF
     
     echo "Created $filename"
-    echo "To run it, start ZEsarUX with ./zx.sh run"
+    echo "To run it, start ZEsarUX with $SCRIPT_NAME run"
     echo "Then use File > Smart Load > $filename"
 }
 
@@ -116,7 +122,7 @@ EOF
     
     echo "Created $filename"
     echo "To assemble and run:"
-    echo "1. Start ZEsarUX with ./zx.sh run"
+    echo "1. Start ZEsarUX with $SCRIPT_NAME run"
     echo "2. In ZEsarUX, access the built-in assembler via Tools menu"
     echo "3. Load and assemble this file"
 }

@@ -9,21 +9,29 @@ A clean, simple environment for ZX Spectrum programming on ICE Felix computers.
 
 ## Quick Start
 
-This environment uses a single command script (`zx.sh`) to manage everything:
+This environment uses a single command script (`zx`) to manage everything:
 
 ```bash
 # Start the ZX Spectrum emulator
-./zx.sh run
+zx run
 
 # Create a new BASIC program
-./zx.sh basic mygame
+zx basic mygame
 
 # Create a new assembly program
-./zx.sh asm mygraphics
+zx asm mygraphics
 
 # Show help
-./zx.sh help
+zx help
 ```
+
+## Global Command Setup
+
+The `zx` command is set up to work from any directory:
+
+1. A symbolic link is created in `~/bin/zx`
+2. The `~/bin` directory is added to your PATH in ~/.zshrc
+3. You can now run the `zx` command from anywhere
 
 ## Development Workflow
 
@@ -31,12 +39,12 @@ This environment uses a single command script (`zx.sh`) to manage everything:
 
 1. Create a new BASIC program:
    ```
-   ./zx.sh basic mygame
+   zx basic mygame
    ```
 
 2. Start the emulator:
    ```
-   ./zx.sh run
+   zx run
    ```
 
 3. In ZEsarUX:
@@ -49,12 +57,12 @@ This environment uses a single command script (`zx.sh`) to manage everything:
 
 1. Create a new assembly program:
    ```
-   ./zx.sh asm mygame
+   zx asm mygame
    ```
 
 2. Start the emulator:
    ```
-   ./zx.sh run
+   zx run
    ```
 
 3. In ZEsarUX:
