@@ -1,0 +1,6 @@
+10 REM demo.bas - ZX Spectrum BASIC program
+20 BORDER 1: PAPER 0: INK 7: CLS
+30 PRINT AT 10,8;"demo"
+40 PRINT AT 12,6;"PRESS ANY KEY"
+50 PAUSE 0
+60 REM Your code here
